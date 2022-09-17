@@ -8,7 +8,6 @@ public class BrowserHistoryUpgrade_08 {
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine();
-        String current = null;
 
         ArrayDeque<String> url = new ArrayDeque<>();
         ArrayDeque<String> forward = new ArrayDeque<>();
@@ -17,8 +16,8 @@ public class BrowserHistoryUpgrade_08 {
 
             if (input.equals("back")) {
                 if (url.size() > 1) {
-                    current = url.pop();
-                    forward.push(current);
+                    forward.addFirst(url.peek());
+                    url.pop();
                     System.out.println(url.peek());
                 } else {
                     System.out.println("no previous URLs");
@@ -26,9 +25,8 @@ public class BrowserHistoryUpgrade_08 {
 
             }else if(input.equals("forward")){
                 if(!forward.isEmpty()){
-                    current = forward.pop();
-                    url.push(current);
-                    System.out.println(current);
+                    url.push(forward.pop());
+                    System.out.println(url.peek());
 
                 }else{
                     System.out.println("no next URLs");
@@ -36,6 +34,7 @@ public class BrowserHistoryUpgrade_08 {
 
             } else {
                 url.push(input);
+                forward.clear();
                 System.out.println(url.peek());
 
             }
