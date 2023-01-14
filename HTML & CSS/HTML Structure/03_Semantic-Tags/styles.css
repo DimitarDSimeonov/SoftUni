@@ -1,0 +1,17 @@
+body{
+    background-color: #f9f7cf;
+    padding: 15px;
+    width: 480px;
+}
+
+header{
+    border: 1px hidden #f2dcbb;
+    background-color: #f2dcbb;
+    padding: 5px 15px;
+}
+
+footer{
+    border: 1px hidden #f2dcbb;
+    background-color: #f2dcbb;
+    padding: 5px 15px;
+}
