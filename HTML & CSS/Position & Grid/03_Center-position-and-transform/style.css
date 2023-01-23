@@ -1,0 +1,45 @@
+html {
+    font-family: Georgia, serif;
+    font-size: 1em/1.2;
+}
+body {
+    background-color: rgb(238, 238, 238) ;
+}
+
+section {
+    width: 400px;
+    height: 4000px;
+    border: 1px medium;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
+img{
+    width: 400px;
+    height: 200px;
+    position: absolute;
+}
+div {
+    height: 180px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+}
+h3 {
+    padding-top: 25px;
+    padding-left: 20px;
+}
+p {
+    padding-left:  20px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border: 1px hidden;
+    padding: 5px;
+    background-color: rgb(0, 153, 0) ;
+    float: right;
+    border-radius: 3px;
+    
+}

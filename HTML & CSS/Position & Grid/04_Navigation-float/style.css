@@ -1,0 +1,66 @@
+body {
+    width: 800px;
+    padding: 20px;
+    background-color: rgb(238, 238, 238);
+}
+
+header > nav > ul > li{
+    display: block;
+    float: right;
+    margin-right: 10px;
+    color: rgb(0, 102, 0) ;
+}
+
+body > header > p {
+    font-size: 36px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+main {
+    width: 600px;
+    float: left;
+}
+
+.img.one {
+    float: right;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+aside {
+    float: right;
+}
+blockquote {
+    border-left: 3px solid lightgray;
+    font-family: Georgia, serif;
+    float: right;
+    width: 250px;
+}
+blockquote > p {
+    padding-left: 15px;
+}
+
+aside > section > nav > ul > li > a {
+    text-decoration: none;
+    color: rgb(0, 102, 0);
+}
+
+.two {
+    float: left; 
+    border: 2px solid black;
+    padding: 5px;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    font-size: 1em/1.2;
+}
+
+.author {
+    float: right;
+}
