@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    max-width: 65vw;
+    max-height: 25vh;
+}
+
+
+span {
+    text-align: center;
+    border: 1px solid black;
+}
+
+section {
+    display: flex;
+    align-items: center;
+}
+
+.notes {
+    flex-direction: column;
+}
+
+.week {
+    
+    flex-wrap: wrap;
+}
+
+.week :nth-child(1) {
+    width: 100%;
+}
+.week :nth-child(7) {
+    width: 100%;
+}

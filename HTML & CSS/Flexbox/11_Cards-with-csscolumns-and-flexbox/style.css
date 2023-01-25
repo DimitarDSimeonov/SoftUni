@@ -1,0 +1,47 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(238, 238, 238);
+    width: 90vw;
+}
+
+.masonry {
+    display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 200vh;
+  margin: 10%;
+  
+}
+
+.card {
+    width: 20vw;
+    margin: 10px;
+    background-color: white;
+}
+
+.card section {
+    padding-left: 16px;
+    border-bottom: 1px solid black;
+}
+
+.card footer {
+    padding: 16px;
+}
+
+img {
+    width: 20vw;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10%;
+}
+
+h2 {
+    margin: 10%;
+}
+
+.flex.card footer {
+    height: 20%;
+}

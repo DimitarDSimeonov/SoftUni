@@ -1,0 +1,21 @@
+body {
+    max-width: 95vw;
+    padding: 15px;
+}
+header {
+    display: flex;
+    border-bottom: 2px solid rgb(0,0,0);
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+a {
+    color: rgb(0, 153, 0);
+    margin: 10px;
+}

@@ -1,0 +1,55 @@
+body {
+    margin: 40px;
+    background-color: rgb(238, 238, 238);
+    width: 90vw;
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
+}
+body > h1 {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+main {
+    max-width: 70vw;
+}
+
+.first-img {
+    float: right;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+}
+
+blockquote {
+    font-family: Georgia, serif;
+    float: right;
+    max-width: 50%;
+    border-left: 2px solid lightgray;
+    margin: 10px;
+    padding-left: 10px;
+}
+blockquote > p + p{
+    text-align: right;
+}
+
+.second-img {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+aside a {
+    color: rgb(0, 153, 0);
+}

@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-shrink: 1;
+    width: 50%;
+    height: 30%;
+    justify-content: space-between;
+}
+img {
+    margin: 10px;
+    border-radius: 4px;
+}
+
+.container :nth-child(1) {
+    width: 10%;
+}
+
+.container :nth-child(2) {
+    width: 50%;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
+
+.container :nth-child(3) {
+    width: 10%;
+}
+
+.container :nth-child(4) {
+    width: 10%;
+}
