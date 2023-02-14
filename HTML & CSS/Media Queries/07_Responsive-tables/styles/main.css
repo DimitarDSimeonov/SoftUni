@@ -1,0 +1,27 @@
+body {
+    background-color: #eee;
+}
+
+section{
+   width: 90vw;
+   margin: auto;
+}
+
+table {
+    margin-top: 40px;
+}
+
+td {
+    width: calc(100% /3);
+    border: 1px solid lightgray;
+    padding: 4px 8px;
+}
+
+tr:nth-of-type(1) {
+    background-color: #333;
+    color: white;
+}
+
+tr:nth-of-type(3) {
+    background-color: white;
+}

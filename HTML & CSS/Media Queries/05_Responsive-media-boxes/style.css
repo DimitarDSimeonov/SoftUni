@@ -1,0 +1,48 @@
+html {
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 1em/1.2;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+
+section{
+    width: 30vw;
+    height: 70vh;
+    border-radius: 4px;
+    padding: 5%;
+    overflow: hidden;
+    
+}
+
+div {
+    width: 100%;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255) ;
+}
+img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+p {
+    padding: 6px 20px;
+}
+
+button {
+    background-color: rgb(0, 153, 0);
+    color: rgb(255, 255, 255);
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 5%;
+    margin-left: 75%;
+}
