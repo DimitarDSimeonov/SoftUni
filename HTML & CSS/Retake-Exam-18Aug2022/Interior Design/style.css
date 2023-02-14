@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@100;300;400;700;900&display=swap');
+@import url('https://use.fontawesome.com/releases/v6.1.1/css/all.css');
+
+body {
+    margin: 0;
+}
+
+.top {
+    width: 80vw;
+    height: 838px;
+    margin: auto;
+    overflow: hidden;
+    background-image: url(image/image.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+.top header {
+    width: 240px;
+    height: 200px;
+    margin: 36px 48px;
+    box-shadow: 1px 1px 4px 1px #6d6b6b;
+}
+
+.top h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 34px;
+    color: #363434;
+    margin-bottom: 0;
+    padding: 20px 20px 0 20px;
+    line-height: 1.5;
+}
+
+.top header p {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: 400;
+    border-top: 2px solid white;
+    margin-left: 20px;
+    padding: 10px 10px 0 0;
+    display: inline-block;
+}
+
+.top article {
+    width: 280px;
+    height: 270px;
+    box-shadow: 1px 1px 4px 1px #6d6b6b;
+    background: rgb(156, 146, 138);
+    background: linear-gradient(90deg, rgba(156, 146, 138, 1) 10%, rgba(201, 199, 198, 1) 70%);
+    color: #fffff6;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 16px;
+    text-align: right;
+    position: relative;
+    top: -8%;
+    right: -69%;
+}
+.top article i {
+    margin-top: 20px;
+    font-size: 30px;
+    color: #8d8581;
+}
+
+.top article p {
+    margin: 10px 0;
+}
+
+.bott {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.bott article {
+    flex-basis: 56vw;
+    background-color: #f2f0f3;
+    padding: 40px 60px 0px 80px;
+}
+
+.bott article h2 {
+    margin: 0;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #363434;
+}
+
+.bott aside {
+    width: 34vw;
+    background-color: #bab1ad;
+    
+}
+
+.bott article p {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: 300;
+    margin-top: 22px;
+    margin-bottom: 40px;
+}
+.bott strong {
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.line {
+    border-bottom: 2px solid black;
+}
+
+.foot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+
+.bott .foot p {
+    margin: 10px 10px 0px 0px
+}
+
+form {
+    margin: 20px 0;
+}
+
+input {
+    color: white;
+}
+
+.text {
+    width: 280px;
+    border-radius: 4px;
+    padding: 10px 16px;
+    border: hidden;
+    background-color: #bab1ad;
+}
+
+.text::placeholder{
+    color: white;
+}
+
+.btn {
+    padding: 8px 16px;
+    background-color: #67784d;
+    border-radius: 4px;
+}
+
+aside {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+aside div p:nth-of-type(2n + 1) {
+    color: white;
+    font-size: 64px;
+    margin: 0;
+}
+
+aside div p:nth-of-type(2n + 0) {
+    margin: 0;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 400;
+}
+
+aside div {
+    margin-left: 40px;
+}
+
+span {
+    font-weight: bold;
+}
