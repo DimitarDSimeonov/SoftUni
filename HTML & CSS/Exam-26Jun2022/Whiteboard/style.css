@@ -1,0 +1,184 @@
+@import url('https://use.fontawesome.com/releases/v6.1.1/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)), url(image/computer-main.jpg);
+    background-position: center;
+    width: 100%;
+    height: 90vh;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+.head nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+}
+
+.head div {
+    margin-top: 3%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+.head p {
+    max-width: 50%;
+    font-size: 32px;
+}
+
+button {
+    font-size: 28px;
+    border-radius: 4px;
+    background-color: #00d08e;
+    border: hidden;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    border: 5px solid white;
+    background: none;
+}
+
+.tablet {
+    width: 100%;
+    display: flex;
+}
+
+.tablet div {
+    width: 50%;
+}
+
+.tablet h2 {
+    font-size: 60px;
+    margin: 50px 0 0;
+}
+
+.tablet div:nth-child(2){
+    margin-left: 8%;
+}
+
+.tablet div:nth-child(2) p:nth-of-type(1) {
+    font-size: 32px;
+    margin: 0px 0 60px;
+}
+
+.tablet div:nth-child(2) p{
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.tablet i {
+    color:  #00d08e;
+    margin-right: 40px;
+}
+
+.pen {
+    width: 100%;
+    display: flex;
+    gap: 100px;
+}
+
+.pen div {
+    width: 50%;
+}
+
+.pen div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pen div:first-child > div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    row-gap: 40px;
+    align-items: center;
+    margin-left: 30%;
+}
+
+.pen img {
+    width: 100%;
+}
+
+.pen .map  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}   
+
+.pen .map p {
+    font-size: 24px;
+    font-weight: bold;
+    color:  #00d08e;
+    margin: 0;
+}
+
+.pen h2 {
+    font-size: 40px;
+}
+
+.foot {
+    width: 100%;
+    background-color: #b2f1dd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foot div {
+    display: grid;
+    grid-template-columns: repeat(3 , 25%);
+    grid-template-rows: repeat(2, 1fr);
+    margin-left: 10%;
+    align-items: flex-start;
+    gap: 6%;
+}
+
+.foot .faq {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.foot h2 {
+    font-size: 32px;
+}
+
+.faq h4 {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.faq p {
+    font-size: 16px;
+}
+
+span {
+    font-weight: bold;
+}

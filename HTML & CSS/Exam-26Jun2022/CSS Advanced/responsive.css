@@ -1,0 +1,68 @@
+@media (max-width: 600px) {
+    body {
+        max-width: 600px;
+    }
+    main {
+        width: 100vw;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    main .left-to-right article {
+        border-radius: 25%;
+        padding: 10px;
+        height: 200px;
+        width: 200px;
+    }
+
+    main .left-to-right button {
+        display: none;
+    }
+
+    main .left-to-right h1 {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+
+    main .left-to-right p {
+        font-size: 0.5rem;
+        width: 200px;
+    }
+
+    .left-to-right:first-child {
+        overflow: hidden;
+        background-size: 65%;
+        height: 220px;
+        padding: 40px;
+    }
+
+    main section header h1 {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+
+    main section p {
+        width: 250px;
+        font-size: 0.5rem;
+    }
+
+    main section button {
+        display: none;
+    }
+
+    main section:nth-of-type(2) {
+        flex-direction: column;
+    }
+
+    main section:nth-of-type(2) article img {
+        width: 250px;
+    }
+
+    main section.left-to-right:nth-child(3) {
+        background-size: 65%;
+        height: 220px;
+        padding: 40px;
+    }
+}
