@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://use.fontawesome.com/releases/v6.3.0/css/all.css');
+
+body {
+    max-width: 85vw;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    padding-top: 5%;
+    padding-left: 5%;
+    background-color: #f6e0b5;
+    margin: auto;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    
+}
+
+.card {
+    width: 500px;
+    height: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #66545e;
+    color: white;
+    box-shadow: -4px 2px 42px 0px rgba(0,0,0,0.75);
+}
+
+img {
+    width: 100%;
+    height: 280px;
+}
+
+h2 {
+    margin-left: 10px;
+    background-color: #66545e;
+}
+aside {
+    margin-left: 60px;
+}
+
+nav {
+    font-size: 32px;
+    text-align: left;
+}
+
+h4 {
+    color: #66545e; 
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #66545e;
+    font-weight: bold;
+}
+
+i {
+    margin-right: 20px;
+}

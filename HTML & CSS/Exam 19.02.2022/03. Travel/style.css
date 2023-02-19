@@ -1,0 +1,126 @@
+@import url('https://use.fontawesome.com/releases/v6.3.0/css/all.css');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 95vw;
+    margin: auto;
+}
+
+header {
+    background-image: url(images/landing-photo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 700px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+    color: #370511;
+}
+
+nav ul{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav a {
+    margin-right: 24px;
+}
+
+.btn-dark{
+    border-radius:100px;
+    background-color: #370511;
+    color: white;
+    padding: 10px 20px;
+}
+
+header div{
+    margin-left: 15%;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 80px;
+}
+
+p {
+    font-size:24px;
+    margin: 0;
+}
+
+header button {
+    width: 200px;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article {
+    width: 60vw;
+    display: grid;
+    grid-template-columns: repeat(3 , 30%);
+    gap: 40px;
+}
+
+.card{
+    text-align: center;
+}
+
+.card p {
+    text-align: left;
+    margin: 20px;
+    font-size: 18px;
+}
+
+.card img{
+    width: 100%;
+    aspect-ratio: 1 /1;
+}
+
+.card button {
+    border: 2px solid #370511;
+    padding: 20px 40px;
+    border-radius: 100px;
+}
+main h2 {
+    margin-bottom: 0;
+}
+
+footer {
+    width: 100%;
+    margin: 80px;
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+}
+
+footer h2, footer a, footer span {
+    color: white;
+}
+
+footer nav.social {
+    display: flexbox;
+    flex-direction: row;
+}
