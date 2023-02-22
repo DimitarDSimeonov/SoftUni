@@ -1,0 +1,25 @@
+LocalTime currentTime = LocalTime.now();
+        LocalDate currentDate = LocalDate.now();
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        System.out.println("Current time = " + timeFormatter.format(currentTime));
+
+        System.out.println("Current time + 30 sec = " + timeFormatter.format(currentTime.plusSeconds(30)));
+        System.out.println("Current time - 20 sec = " + timeFormatter.format(currentTime.minusSeconds(20)));
+        System.out.println("Current time + 10 min = " + timeFormatter.format(currentTime.plusMinutes(10)));
+        System.out.println("Current time - 15 min = " + timeFormatter.format(currentTime.minusMinutes(15)));
+        System.out.println("Current time + 30 hours = " + timeFormatter.format(currentTime.plusHours(30)));
+        System.out.println("Current time - 40 hours = " + timeFormatter.format(currentTime.minusHours(40)));
+
+        System.out.println("Current date = " + dateFormatter.format(currentDate));
+
+        System.out.println("Current date + 15 days = " + dateFormatter.format(currentDate.plusDays(15)));
+        System.out.println("Current date - 25 days = " + dateFormatter.format(currentDate.minusDays(25)));
+        System.out.println("Current date + 6 weeks = " + dateFormatter.format(currentDate.plusWeeks(6)));
+        System.out.println("Current date - 8 weeks = " + dateFormatter.format(currentDate.minusWeeks(8)));
+        System.out.println("Current date + 3 months = " + dateFormatter.format(currentDate.plusMonths(3)));
+        System.out.println("Current date - 4 months = " + dateFormatter.format(currentDate.minusMonths(4)));
+        System.out.println("Current date + 7 years = " + dateFormatter.format(currentDate.plusYears(3)));
+        System.out.println("Current date - 2 years = " + dateFormatter.format(currentDate.minusYears(4)));

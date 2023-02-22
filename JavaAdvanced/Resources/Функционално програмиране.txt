@@ -1,0 +1,5 @@
+//Function<приема, връща>
+//UnaryOperator<приема и връща>
+//Predicate<приемаме> връщаме винаги boolean
+//Consumer<приема> не връща нищо
+//Supplier<връща>
