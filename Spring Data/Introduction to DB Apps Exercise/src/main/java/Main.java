@@ -23,7 +23,7 @@ public class Main {
                 case "4" ->  AddMinion.run();
             }
 
-            System.out.println("Other task?");
+            System.out.println("Other task?[YES/NO]");
             input = scanner.nextLine().toUpperCase(Locale.ROOT);
         }
         System.out.println("Have a nice day!");
