@@ -23,6 +23,7 @@ public class Main {
                 case "4" ->  AddMinion.run();
                 case "5" -> ChangeTownNamesCasing.run();
                 case "6" -> RemoveVillain.run();
+                case "7" -> PrintAllMinionNames.run();
             }
 
             System.out.println("Other task?[YES/NO]");
