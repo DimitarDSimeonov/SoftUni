@@ -21,13 +21,13 @@ public class Main {
                 case "2" -> GetVillainsNames.run();
                 case "3" -> GetMinionNames.run();
                 case "4" ->  AddMinion.run();
+                case "5" -> ChangeTownNamesCasing.run();
             }
 
             System.out.println("Other task?[YES/NO]");
             input = scanner.nextLine().toUpperCase(Locale.ROOT);
         }
         System.out.println("Have a nice day!");
-
 
     }
 }
