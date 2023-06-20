@@ -25,6 +25,7 @@ public class Main {
                 case "6" -> RemoveVillain.run();
                 case "7" -> PrintAllMinionNames.run();
                 case "8" -> IncreaseMinionsAge.run();
+                case "9" -> IncreaseAgeStoredProcedure.run();
             }
 
             System.out.println("Other task?[YES/NO]");
