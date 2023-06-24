@@ -1,37 +1,42 @@
-import entities.*;
-import tasks.ContainsEmployee;
-import tasks.EmployeesFromDepartment;
-import tasks.IncreaseSalaries;
-import tasks.RemoveTowns;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.math.BigDecimal;
+import tasks.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
-            //ТЕСТВАНЕТО НА 6-ТА МОЖЕ ДА СЧУПИ БАЗАТА ЗА РЕШЕНИЕТО НА 7-МА
+        //ТЕСТВАНЕТО НА 6-ТА МОЖЕ ДА СЧУПИ БАЗАТА ЗА РЕШЕНИЕТО НА 7-МА
+        //Before start place set your user and password in persistence.xml
+        //Проверяващия колега трябва да пусне веднъж проекта за да се създаде базата данни,
+        // да го спре и да я попълни от SQL файла и пак да пусне за тестване на задачите
+        Manager.run();
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Are we going to test the task?[YES/NO]");
+        String input = scanner.nextLine().toUpperCase(Locale.ROOT);
 
+        while (!input.equals("NO")) {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("soft_uni");
-        EntityManager em = factory.createEntityManager();
+            System.out.println("Enter the number of task[2-13]");
+            input = scanner.nextLine();
 
-        em.getTransaction().begin();
+            switch (input) {
+                case "2" -> ChangeCasing.run();
+                case "3" -> ContainsEmployee.run();
+                case "4" -> EmployeesWhitSalaryOver50000.run();
+                case "5" -> EmployeesFromDepartment.run();
+                case "6" -> AddingNewAddressAndUpdatingEmployee.run();
+                case "7" -> AddressesWhitEmployeeCount.run();
+                case "8" -> GetEmployeesWhitProject.run();
+                case "9" -> FindTheLatest10Projects.run();
+                case "10" -> IncreaseSalaries.run();
+                case "11" -> FindEmployeesByFirstName.run();
+                case "12" -> EmployeesMaximumSalaries.run();
+                case "13" -> RemoveTowns.run();
+            }
 
-        List<Department> departments = em.createQuery("SELECT d.name, MAX(e.salary) AS max_salary FROM Department AS d\n" +
-                        "JOIN Employee AS e ON e.department_id = d.id\n" +
-                        "GROUP BY d.id\n" +
-                        "HAVING max_salary < 30000 OR max_salary > 70000", Department.class).getResultList()
-                        .stream()
-                        .collect(Collectors.toList());
-
-        departments.forEach(d -> d.getEmployees().stream().max((f, s) -> f.getSalary().compareTo(s.getSalary())).get());
-
-        em.getTransaction().commit();
+            System.out.println("Other task?[YES/NO]");
+            input = scanner.nextLine().toUpperCase(Locale.ROOT);
+        }
+        System.out.println("Have a nice day!");
     }
 }
