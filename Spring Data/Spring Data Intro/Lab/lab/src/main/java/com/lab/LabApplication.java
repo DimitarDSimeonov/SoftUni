@@ -10,4 +10,6 @@ public class LabApplication {
 		SpringApplication.run(LabApplication.class, args);
 	}
 
+	private ConsoleRunner consoleRunner;
+
 }
