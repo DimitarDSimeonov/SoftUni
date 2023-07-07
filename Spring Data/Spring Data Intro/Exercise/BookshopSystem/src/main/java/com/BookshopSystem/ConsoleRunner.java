@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
@@ -26,6 +27,8 @@ public class ConsoleRunner implements CommandLineRunner {
         System.out.println("Hello SPRING");
 
         seedData();
+
+
     }
 
     private void seedData() throws IOException {
@@ -33,5 +36,10 @@ public class ConsoleRunner implements CommandLineRunner {
         categoryService.seedCategory();
         authorService.seedAuthors();
         bookService.seedBook();
+    }
+
+    private void taskOne() {
+        bookService.getAllBookAfterYear(LocalDate.of(2000, 12, 31))
+                .forEach(b -> bookService.printBookTitle(b));
     }
 }
