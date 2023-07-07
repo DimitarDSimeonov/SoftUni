@@ -13,4 +13,8 @@ public interface BookService {
     List<Book> getAllBookAfterYear(LocalDate localDate);
 
     void printBookTitle(Book book);
+
+    List<String> getAllBookBeforeYear(int year);
+
+    List<String> getAllByAuthorFirstNameAndAuthorLastNameOrderByReleaseDateDescTitleAsc(String firstName, String lastName);
 }
