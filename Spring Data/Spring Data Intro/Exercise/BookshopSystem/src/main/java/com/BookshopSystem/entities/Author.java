@@ -35,4 +35,12 @@ public class Author extends BaseEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 }
