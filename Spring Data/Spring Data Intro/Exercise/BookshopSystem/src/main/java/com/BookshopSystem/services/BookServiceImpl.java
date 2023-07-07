@@ -53,14 +53,30 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAllBookAfterYear(LocalDate localDate) {
-        List<Book> books = new ArrayList<>();
-        books = bookRepository.findAllByReleaseDateAfter(localDate);
-        return books;
+
+        return bookRepository.findAllByReleaseDateAfter(localDate);
     }
 
     @Override
     public void printBookTitle(Book book) {
         System.out.println(book.getTitle());
+    }
+
+    @Override
+    public List<String> getAllBookBeforeYear(int year) {
+        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1))
+                .stream()
+                .map(book -> String.format("%s %s", book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getAllByAuthorFirstNameAndAuthorLastNameOrderByReleaseDateDescTitleAsc(String firstName, String lastName) {
+        return bookRepository.findAllByAuthorFirstNameAndAuthorLastNameOrderByReleaseDateDescTitleAsc(firstName, lastName)
+                .stream()
+                .map(book -> String.format("%s %s %d copies", book.getTitle(), book.getReleaseDate(), book.getCopies()))
+                .collect(Collectors.toList());
     }
 
     private Book createBook(String[] bookInfo) {
