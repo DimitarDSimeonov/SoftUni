@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -46,5 +50,14 @@ public class AuthorServiceImpl implements AuthorService {
 
         return authorRepository.findById(randomId)
                 .orElse(null);
+    }
+
+    @Override
+    public List<String> getAllOrderByBookCount() {
+        return authorRepository.findAll()
+                .stream()
+                .sorted((a1, a2) -> Integer.compare(a2.getBooks().size(), a1.getBooks().size()))
+                .map(author -> String.format("%s %s - %d books", author.getFirstName(), author.getLastName(), author.getBooks().size()))
+                .collect(Collectors.toList());
     }
 }
