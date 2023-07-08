@@ -14,6 +14,8 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -47,6 +49,14 @@ public class BookServiceImpl implements BookService {
 
                     bookRepository.save(book);
                 });
+    }
+
+    @Override
+    public List<String> getBookTitleByAgeRestriction(String ageRestriction) {
+        return bookRepository.findAllByAgeRestriction(AgeRestriction.valueOf(ageRestriction.toUpperCase(Locale.ROOT)))
+                .stream()
+                .map(b -> String.format("%s", b.getTitle()))
+                .collect(Collectors.toList());
     }
 
     private Book createBook(String[] bookInfo) {

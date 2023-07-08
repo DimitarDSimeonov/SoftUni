@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
@@ -14,11 +15,13 @@ public class ConsoleRunner implements CommandLineRunner {
     private AuthorService authorService;
     private BookService bookService;
     private CategoryService categoryService;
+    private Scanner scanner;
 
     public ConsoleRunner(AuthorService authorService, BookService bookService, CategoryService categoryService) {
         this.authorService = authorService;
         this.bookService = bookService;
         this.categoryService = categoryService;
+        this.scanner = new Scanner(System.in);
     }
 
     @Override
@@ -26,6 +29,14 @@ public class ConsoleRunner implements CommandLineRunner {
         System.out.println("Hello SPRING");
 
         seedData();
+        
+    }
+
+    private void printBookTitleByAgeRestriction() { //TASK 1
+        System.out.println("Enter age restriction");
+        String ageRestriction = scanner.nextLine();
+        bookService.getBookTitleByAgeRestriction(ageRestriction)
+                .forEach(System.out::println);
     }
 
     private void seedData() throws IOException {
