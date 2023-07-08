@@ -1,6 +1,7 @@
 package com.BookshopSystem.services;
 
 import com.BookshopSystem.entities.Author;
+import com.BookshopSystem.entities.Book;
 import com.BookshopSystem.repositories.AuthorRepository;
 import com.BookshopSystem.services.intefaces.AuthorService;
 import org.hibernate.engine.internal.ManagedTypeHelper;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -63,5 +65,18 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public List<Author> getAllByLastNameStartWith(String startWith) {
         return authorRepository.findAllByLastNameStartsWith(startWith);
+    }
+
+    @Override
+    public List<String> getAllByCountOfBooksCopies() {
+        List<Author> result = authorRepository.findAllByCountOfBookCopies().stream()
+                .sorted(Comparator.comparing(author -> author.getBooks().stream().mapToInt(Book::getCopies).sum(), Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+        return result.stream()
+                .map(author -> String.format("%s %s - %d",
+                        author.getFirstName(),
+                        author.getLastName(),
+                        author.getBooks().stream().mapToInt(Book::getCopies).sum()))
+                .collect(Collectors.toList());
     }
 }

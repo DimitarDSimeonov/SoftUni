@@ -30,6 +30,11 @@ public class ConsoleRunner implements CommandLineRunner {
 
         seedData();
     }
+    private void printTotalBooksCopies() { //TASK 10
+        authorService.getAllByCountOfBooksCopies()
+                .forEach(System.out::println);
+    }
+
     private void printBookTitleWhereLongerThan() { // TASK 9
         System.out.println("Enter title minimum size");
         int longerThan = scanner.nextInt();
