@@ -113,6 +113,13 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByTitleLengthGreaterThan(longerThan);
     }
 
+    @Override
+    public String getByTitle(String title) {
+        Book book = bookRepository.findByTitle(title);
+
+        return String.format("%s %s %s %s", book.getTitle(), book.getEditionType(), book.getAgeRestriction(), book.getPrice());
+    }
+
     private Book createBook(String[] bookInfo) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

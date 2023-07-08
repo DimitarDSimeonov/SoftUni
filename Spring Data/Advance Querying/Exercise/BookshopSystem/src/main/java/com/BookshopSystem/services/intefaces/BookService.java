@@ -24,4 +24,6 @@ public interface BookService {
     List<String> getAllTitlesContainsString(String substring);
 
     int getCountOfBookWhereTitleLongerThan(int longerThan);
+
+    String getByTitle(String title);
 }

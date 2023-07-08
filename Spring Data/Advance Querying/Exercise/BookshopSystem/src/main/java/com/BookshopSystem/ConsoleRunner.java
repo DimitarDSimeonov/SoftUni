@@ -30,6 +30,12 @@ public class ConsoleRunner implements CommandLineRunner {
 
         seedData();
     }
+
+    private void printBookInfoByGivenTitle() { //TASK 11
+        String title = scanner.nextLine();
+        System.out.println(bookService.getByTitle(title));
+    }
+
     private void printTotalBooksCopies() { //TASK 10
         authorService.getAllByCountOfBooksCopies()
                 .forEach(System.out::println);
