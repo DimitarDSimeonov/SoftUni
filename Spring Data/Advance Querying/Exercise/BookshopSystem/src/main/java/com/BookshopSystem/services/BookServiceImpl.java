@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
@@ -80,6 +81,14 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate.of(year, 1, 1), LocalDate.of(year, 12, 31))
                 .stream()
                 .map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getBooksReleasedBeforeDate(String date) {
+        return bookRepository.findAllByReleaseDateBefore(LocalDate.parse(date, DateTimeFormatter.ofPattern("dd-MM-yyyy")))
+                .stream()
+                .map(b -> String.format("%s %s %s", b.getTitle(), b.getEditionType(), b.getPrice()))
                 .collect(Collectors.toList());
     }
 

@@ -16,4 +16,6 @@ public interface BookService {
     List<String> getBookTitleAndPriceOutOfRange();
 
     List<String> getAllBooksWithDifferentYear(int year);
+
+    List<String > getBooksReleasedBeforeDate(String date);
 }
