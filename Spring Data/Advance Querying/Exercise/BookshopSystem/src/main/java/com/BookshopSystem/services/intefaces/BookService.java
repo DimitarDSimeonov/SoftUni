@@ -1,5 +1,7 @@
 package com.BookshopSystem.services.intefaces;
 
+import com.BookshopSystem.entities.Book;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -12,4 +14,6 @@ public interface BookService {
     List<String> getAllGoldenBookTitle();
 
     List<String> getBookTitleAndPriceOutOfRange();
+
+    List<String> getAllBooksWithDifferentYear(int year);
 }

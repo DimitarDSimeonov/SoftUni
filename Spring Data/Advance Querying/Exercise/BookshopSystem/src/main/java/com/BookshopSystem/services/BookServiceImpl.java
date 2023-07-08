@@ -75,6 +75,14 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<String> getAllBooksWithDifferentYear(int year) {
+        return bookRepository.findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate.of(year, 1, 1), LocalDate.of(year, 12, 31))
+                .stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
     private Book createBook(String[] bookInfo) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

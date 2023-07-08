@@ -29,8 +29,15 @@ public class ConsoleRunner implements CommandLineRunner {
         System.out.println("Hello SPRING");
 
         seedData();
-
+        
     }
+    private void printTitleOfBookWithReleaseYearDifferentOfGiven() { //Task 4
+        System.out.println("Enter year[yyyy]");
+        int year =Integer.parseInt(scanner.nextLine());
+        bookService.getAllBooksWithDifferentYear(year)
+                .forEach(System.out::println);
+    }
+
     private void printBookTitleWithPriceOutOfRange() { //TASK 3
         bookService.getBookTitleAndPriceOutOfRange()
                 .forEach(System.out::println);
