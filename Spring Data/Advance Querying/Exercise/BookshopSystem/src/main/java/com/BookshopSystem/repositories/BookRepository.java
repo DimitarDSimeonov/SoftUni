@@ -22,4 +22,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate before, LocalDate after);
 
     List<Book> findAllByReleaseDateBefore(LocalDate date);
+
+    List<Book> findAllByTitleContains(String substring);
 }

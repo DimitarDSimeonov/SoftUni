@@ -20,4 +20,6 @@ public interface BookService {
     List<String > getBooksReleasedBeforeDate(String date);
 
     List<String> getBookTitleAndAuthorWithLastNameStartWith(String startWith);
+
+    List<String> getAllTitlesContainsString(String substring);
 }

@@ -29,12 +29,18 @@ public class ConsoleRunner implements CommandLineRunner {
         System.out.println("Hello SPRING");
 
         seedData();
-        printBookTitleAndAuthorWithLastNameStartWith();
     }
     private void printBookTitleAndAuthorWithLastNameStartWith() { //TASK 8
         System.out.println("Enter last name start string");
         String startWith = scanner.nextLine();
         bookService.getBookTitleAndAuthorWithLastNameStartWith(startWith)
+                .forEach(System.out::println);
+    }
+
+    private void printBookTitleContainsString() {
+        System.out.println("Enter substring");
+        String substring = scanner.nextLine();
+        bookService.getAllTitlesContainsString(substring)
                 .forEach(System.out::println);
     }
 
