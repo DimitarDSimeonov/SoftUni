@@ -10,4 +10,6 @@ public interface BookService {
     List<String> getBookTitleByAgeRestriction(String ageRestriction);
 
     List<String> getAllGoldenBookTitle();
+
+    List<String> getBookTitleAndPriceOutOfRange();
 }

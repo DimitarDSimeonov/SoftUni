@@ -29,7 +29,11 @@ public class ConsoleRunner implements CommandLineRunner {
         System.out.println("Hello SPRING");
 
         seedData();
-        
+
+    }
+    private void printBookTitleWithPriceOutOfRange() { //TASK 3
+        bookService.getBookTitleAndPriceOutOfRange()
+                .forEach(System.out::println);
     }
 
     private void printTitleOfGoldenBook() { // TASK 2
