@@ -32,6 +32,11 @@ public class ConsoleRunner implements CommandLineRunner {
         
     }
 
+    private void printTitleOfGoldenBook() { // TASK 2
+        bookService.getAllGoldenBookTitle()
+                .forEach(System.out::println);
+    }
+
     private void printBookTitleByAgeRestriction() { //TASK 1
         System.out.println("Enter age restriction");
         String ageRestriction = scanner.nextLine();

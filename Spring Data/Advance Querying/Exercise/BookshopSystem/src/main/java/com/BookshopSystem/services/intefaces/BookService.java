@@ -8,4 +8,6 @@ public interface BookService {
     void seedBook() throws IOException;
 
     List<String> getBookTitleByAgeRestriction(String ageRestriction);
+
+    List<String> getAllGoldenBookTitle();
 }

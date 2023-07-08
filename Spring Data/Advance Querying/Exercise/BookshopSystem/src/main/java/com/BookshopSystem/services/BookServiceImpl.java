@@ -59,6 +59,14 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<String> getAllGoldenBookTitle() {
+        return bookRepository.findAllByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000)
+                .stream()
+                .map(book -> String.format("%s", book.getTitle()))
+                .collect(Collectors.toList());
+    }
+
     private Book createBook(String[] bookInfo) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
