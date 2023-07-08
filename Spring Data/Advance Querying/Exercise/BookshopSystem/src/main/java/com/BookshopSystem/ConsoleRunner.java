@@ -30,6 +30,12 @@ public class ConsoleRunner implements CommandLineRunner {
 
         seedData();
     }
+    private void printBookTitleWhereLongerThan() { // TASK 9
+        System.out.println("Enter title minimum size");
+        int longerThan = scanner.nextInt();
+        System.out.println(bookService.getCountOfBookWhereTitleLongerThan(longerThan));
+    }
+
     private void printBookTitleAndAuthorWithLastNameStartWith() { //TASK 8
         System.out.println("Enter last name start string");
         String startWith = scanner.nextLine();
