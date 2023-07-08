@@ -13,10 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -90,6 +87,17 @@ public class BookServiceImpl implements BookService {
                 .stream()
                 .map(b -> String.format("%s %s %s", b.getTitle(), b.getEditionType(), b.getPrice()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getBookTitleAndAuthorWithLastNameStartWith(String startWith) {
+        List<String> result = new ArrayList<>();
+        authorService.getAllByLastNameStartWith(startWith)
+                .forEach(author -> {
+                    author.getBooks()
+                            .forEach(book -> result.add(String.format("%s (%s %s)", book.getTitle(), author.getFirstName(), author.getLastName())));
+                });
+        return result;
     }
 
     private Book createBook(String[] bookInfo) {

@@ -4,12 +4,16 @@ import com.BookshopSystem.entities.Author;
 import com.BookshopSystem.repositories.AuthorRepository;
 import com.BookshopSystem.services.intefaces.AuthorService;
 import org.hibernate.engine.internal.ManagedTypeHelper;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -46,5 +50,18 @@ public class AuthorServiceImpl implements AuthorService {
 
         return authorRepository.findById(randomId)
                 .orElse(null);
+    }
+
+    @Override
+    public List<String> getAuthorWithFirstNameEndsWithString(String ends) {
+        return authorRepository.findByFirstNameEndsWith(ends)
+                .stream()
+                .map(a -> String.format("%s %s", a.getFirstName(), a.getLastName()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Author> getAllByLastNameStartWith(String startWith) {
+        return authorRepository.findAllByLastNameStartsWith(startWith);
     }
 }

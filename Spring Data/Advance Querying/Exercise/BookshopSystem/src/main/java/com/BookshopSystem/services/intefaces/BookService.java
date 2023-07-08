@@ -18,4 +18,6 @@ public interface BookService {
     List<String> getAllBooksWithDifferentYear(int year);
 
     List<String > getBooksReleasedBeforeDate(String date);
+
+    List<String> getBookTitleAndAuthorWithLastNameStartWith(String startWith);
 }
