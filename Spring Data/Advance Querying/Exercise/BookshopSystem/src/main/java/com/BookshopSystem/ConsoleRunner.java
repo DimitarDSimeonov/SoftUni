@@ -30,6 +30,13 @@ public class ConsoleRunner implements CommandLineRunner {
 
         seedData();
     }
+    private void printCountOfRemovedBooks() { //TASK 13
+        System.out.println("Enter number of copies");
+        int numberOfCopies = scanner.nextInt();
+
+        System.out.println(bookService.getNumberOfDeletedBooks(numberOfCopies));
+    }
+
     private void printNumberOfAddedBooks() { //TASK 12
         System.out.println("Enter date[dd MMM yyyy]");
         String releaseDate = scanner.nextLine();

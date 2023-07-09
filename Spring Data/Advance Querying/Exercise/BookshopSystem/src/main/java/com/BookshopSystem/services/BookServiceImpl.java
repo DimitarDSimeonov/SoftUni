@@ -128,6 +128,11 @@ public class BookServiceImpl implements BookService {
         return books.size() * numberOfCopiesPerBook;
     }
 
+    @Override
+    public int getNumberOfDeletedBooks(int numberOfCopies) {
+        return bookRepository.deleteAllByCopiesLessThan(numberOfCopies);
+    }
+
     private Book createBook(String[] bookInfo) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

@@ -28,4 +28,6 @@ public interface BookService {
     String getByTitle(String title);
 
     int getCountOfAddedBooks(String releaseDate, int numberOfCopiesPerBook);
+
+    int getNumberOfDeletedBooks(int numberOfCopies);
 }

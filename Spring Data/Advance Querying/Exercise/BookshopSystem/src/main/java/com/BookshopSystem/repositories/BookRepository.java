@@ -6,6 +6,7 @@ import com.BookshopSystem.entities.EditionType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -32,4 +33,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Book findByTitle(String title);
 
     List<Book> findAllByReleaseDateAfter(LocalDate releaseDate);
+
+    @Transactional
+    int deleteAllByCopiesLessThan(int numberOfCopies);
 }
