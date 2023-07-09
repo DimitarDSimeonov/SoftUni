@@ -26,4 +26,6 @@ public interface BookService {
     int getCountOfBookWhereTitleLongerThan(int longerThan);
 
     String getByTitle(String title);
+
+    int getCountOfAddedBooks(String releaseDate, int numberOfCopiesPerBook);
 }

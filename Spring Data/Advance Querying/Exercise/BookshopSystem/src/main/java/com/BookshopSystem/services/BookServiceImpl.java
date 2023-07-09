@@ -120,6 +120,14 @@ public class BookServiceImpl implements BookService {
         return String.format("%s %s %s %s", book.getTitle(), book.getEditionType(), book.getAgeRestriction(), book.getPrice());
     }
 
+    @Override
+    public int getCountOfAddedBooks(String releaseDate, int numberOfCopiesPerBook) {
+        List<Book> books = bookRepository.findAllByReleaseDateAfter(LocalDate.parse(releaseDate, DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ROOT)));
+        books.forEach(b -> b.setCopies(b.getCopies() + numberOfCopiesPerBook));
+        bookRepository.saveAllAndFlush(books);
+        return books.size() * numberOfCopiesPerBook;
+    }
+
     private Book createBook(String[] bookInfo) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

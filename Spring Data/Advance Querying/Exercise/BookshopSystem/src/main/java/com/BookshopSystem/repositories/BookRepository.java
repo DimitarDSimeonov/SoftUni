@@ -30,4 +30,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Integer findAllByTitleLengthGreaterThan(Integer length);
 
     Book findByTitle(String title);
+
+    List<Book> findAllByReleaseDateAfter(LocalDate releaseDate);
 }
