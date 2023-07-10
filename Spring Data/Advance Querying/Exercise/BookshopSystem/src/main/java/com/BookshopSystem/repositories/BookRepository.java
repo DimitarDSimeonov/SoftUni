@@ -4,7 +4,9 @@ import com.BookshopSystem.entities.AgeRestriction;
 import com.BookshopSystem.entities.Book;
 import com.BookshopSystem.entities.EditionType;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findAllByReleaseDateAfter(LocalDate releaseDate);
 
+    @Modifying
     @Transactional
     int deleteAllByCopiesLessThan(int numberOfCopies);
+
+    @Procedure (value = "usp_count_of_books_writen_from")
+    int findCountOfBooksWrittenBy(String authorName);
 }

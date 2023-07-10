@@ -30,4 +30,6 @@ public interface BookService {
     int getCountOfAddedBooks(String releaseDate, int numberOfCopiesPerBook);
 
     int getNumberOfDeletedBooks(int numberOfCopies);
+
+    String getCountOfBooksWrittenBy(String authorName);
 }

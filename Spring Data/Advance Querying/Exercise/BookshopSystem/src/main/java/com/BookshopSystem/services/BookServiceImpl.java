@@ -133,6 +133,12 @@ public class BookServiceImpl implements BookService {
         return bookRepository.deleteAllByCopiesLessThan(numberOfCopies);
     }
 
+    @Override
+    public String getCountOfBooksWrittenBy(String authorName) {
+        int count = bookRepository.findCountOfBooksWrittenBy(authorName);
+        return String.format("%s has written %d books", authorName, count);
+    }
+
     private Book createBook(String[] bookInfo) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
