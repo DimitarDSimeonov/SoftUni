@@ -26,11 +26,41 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Hello SPRING");
 
         seedData();
+
+        System.out.println("Are we going to test the task?[YES/NO]");
+        String input = scanner.nextLine();
+
+        while (!input.equalsIgnoreCase("NO")) {
+
+            System.out.println("Enter the number of task[1-14]");
+            input = scanner.nextLine();
+
+            switch (input) {
+                case "1" -> printBookTitleByAgeRestriction();
+                case "2" -> printTitleOfGoldenBook();
+                case "3" -> printBookTitleWithPriceOutOfRange();
+                case "4" -> printTitleOfBookWithReleaseYearDifferentOfGiven();
+                case "5" -> printBooksReleasedBeforeGivenDate();
+                case "6" -> printAuthorsWithFirstNameEndsWithGivenString();
+                case "7" -> printBookTitleContainsString();
+                case "8" -> printBookTitleAndAuthorWithLastNameStartWith();
+                case "9" -> printBookTitleWhereLongerThan();
+                case "10" -> printTotalBooksCopies();
+                case "11" -> printBookInfoByGivenTitle();
+                case "12" -> printNumberOfAddedBooks();
+                case "13" -> printCountOfRemovedBooks();
+                case "14" -> printBooksWrittenBy();
+            }
+
+            System.out.println("Other task?[YES/NO]");
+            input = scanner.nextLine();
+        }
+        System.out.println("Have a nice day!");
     }
     private void printBooksWrittenBy() { //TASK 14
+        System.out.println("Enter author full name");
         String authorName = scanner.nextLine();
         System.out.println(bookService.getCountOfBooksWrittenBy(authorName));
     }
