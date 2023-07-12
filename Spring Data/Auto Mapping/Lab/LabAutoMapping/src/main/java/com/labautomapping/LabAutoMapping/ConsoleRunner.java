@@ -14,13 +14,5 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-        ModelMapper modelMapper = new ModelMapper();
-
-        Employee employee = new Employee("Pesho", "Peshev", LocalDate.of(1990, 12, 21),new BigDecimal(2000), "Chaika 15");
-
-        EmployeeDTO employeeDTO = modelMapper.map(employee, EmployeeDTO.class);
-
-        System.out.println(employeeDTO);
     }
 }
