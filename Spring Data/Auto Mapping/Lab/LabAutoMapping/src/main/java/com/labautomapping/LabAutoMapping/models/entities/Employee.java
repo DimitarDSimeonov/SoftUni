@@ -1,29 +1,34 @@
 package com.labautomapping.LabAutoMapping.models.entities;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "employees")
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
+    @Basic
     private LocalDate birthday;
 
+    @Basic
     private BigDecimal salary;
 
+    @Basic
     private String address;
 
     private Employee() {}
-
-    public Employee(String firstName, String lastName, LocalDate birthday, BigDecimal salary, String address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.salary = salary;
-        this.address = address;
-    }
 
     public String getFirstName() {
         return firstName;
