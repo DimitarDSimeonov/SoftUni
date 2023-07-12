@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -28,7 +29,48 @@ public class Employee {
     @Basic
     private String address;
 
+    @Column(name = "on_holiday")
+    private Boolean onHoliday;
+
+    @ManyToOne()
+    private Employee manager;
+
+    public Boolean getOnHoliday() {
+        return onHoliday;
+    }
+
+    public void setOnHoliday(Boolean onHoliday) {
+        this.onHoliday = onHoliday;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    public Set<Employee> getSubordinates() {
+        return subordinates;
+    }
+
+    public void setSubordinates(Set<Employee> subordinates) {
+        this.subordinates = subordinates;
+    }
+
+    @OneToMany(mappedBy = "manager", fetch = FetchType.EAGER)
+    private Set<Employee> subordinates;
+
     private Employee() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;

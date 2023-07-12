@@ -2,31 +2,12 @@ package com.labautomapping.LabAutoMapping.models.dtos;
 
 import java.math.BigDecimal;
 
-public class EmployeeDTO {
+public class EmployeeDTO extends BaseEmployeeDTO{
 
-    private String firstName;
-
-    private String lastName;
 
     private BigDecimal salary;
 
     public EmployeeDTO() {}
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public BigDecimal getSalary() {
         return salary;
@@ -38,6 +19,6 @@ public class EmployeeDTO {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + " " + salary;
+        return getFirstName() + " " + getLastName() + " " + salary;
     }
 }
