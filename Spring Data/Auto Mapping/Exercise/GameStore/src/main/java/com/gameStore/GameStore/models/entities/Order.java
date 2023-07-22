@@ -1,4 +1,4 @@
-package com.gameStore.GameStore.entities;
+package com.gameStore.GameStore.models.entities;
 
 import jakarta.persistence.*;
 
