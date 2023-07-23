@@ -9,4 +9,8 @@ public interface GameService {
     void editGame(String[] commands);
 
     void deleteGame(long id);
+
+    void showAllGames();
+
+    void showGameDetails(String title);
 }

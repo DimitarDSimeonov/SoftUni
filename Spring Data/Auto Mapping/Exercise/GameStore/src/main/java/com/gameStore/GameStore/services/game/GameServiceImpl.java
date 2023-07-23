@@ -1,6 +1,8 @@
 package com.gameStore.GameStore.services.game;
 
+import com.gameStore.GameStore.models.dto.GameDetailsDto;
 import com.gameStore.GameStore.models.dto.GameEditDto;
+import com.gameStore.GameStore.models.dto.GameNameAndPriceDto;
 import com.gameStore.GameStore.models.dto.GameRegisterDto;
 import com.gameStore.GameStore.models.entities.Game;
 import com.gameStore.GameStore.repositories.GameRepository;
@@ -10,10 +12,7 @@ import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class GameServiceImpl implements GameService{
@@ -55,6 +54,8 @@ public class GameServiceImpl implements GameService{
         Game game = modelMapper.map(gameRegisterDto, Game.class);
 
         gameRepository.save(game);
+
+        System.out.println("Added " + game.getTitle());
     }
 
     @Override
@@ -116,5 +117,35 @@ public class GameServiceImpl implements GameService{
         gameRepository.delete(gameToDelete.get());
 
         System.out.println("Deleted " + gameToDelete.get().getTitle());
+    }
+
+    @Override
+    public void showAllGames() {
+        List<Game> games = gameRepository.findAll();
+
+        if(games.isEmpty()) {
+            System.out.println("Not found games");
+            return;
+        }
+
+        List<GameNameAndPriceDto> gameToShow = new ArrayList<>();
+
+        games.forEach(g -> gameToShow.add(modelMapper.map(g,GameNameAndPriceDto.class)));
+
+        gameToShow.forEach(System.out::println);
+    }
+
+    @Override
+    public void showGameDetails(String title) {
+        Optional<Game> game = gameRepository.findByTitle(title);
+
+        if (game.isEmpty()) {
+            System.out.println("Game not found");
+            return;
+        }
+
+        GameDetailsDto gameDetailsDto = modelMapper.map(game, GameDetailsDto.class);
+
+        System.out.println(gameDetailsDto);
     }
 }
