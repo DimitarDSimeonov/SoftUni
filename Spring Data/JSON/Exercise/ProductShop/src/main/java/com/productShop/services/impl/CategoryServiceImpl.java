@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static com.productShop.constants.ConstantPath.CATEGORY_FILE_PATH;
 
@@ -29,6 +32,24 @@ public class CategoryServiceImpl implements CategoryService {
         this.modelMapper = modelMapper;
         this.validationUtil = validationUtil;
         this.gson = gson;
+    }
+
+    @Override
+    public Set<Category> randomCategories() {
+
+        int randomLength = ThreadLocalRandom.current().nextInt(1, 4);
+
+        Set<Category> randomCategories = new HashSet<>();
+
+        Long categoryCount = categoryRepository.count();
+
+        for (int i = 0; i < randomLength; i++) {
+            Long randomId = ThreadLocalRandom.current().nextLong(1, categoryCount + 1);
+
+            randomCategories.add(categoryRepository.findById(randomId).orElse(null));
+        }
+
+        return randomCategories;
     }
 
     @Override
