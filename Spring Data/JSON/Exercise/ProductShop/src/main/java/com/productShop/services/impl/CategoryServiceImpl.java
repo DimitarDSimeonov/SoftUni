@@ -1,7 +1,6 @@
 package com.productShop.services.impl;
 
 import com.google.gson.Gson;
-import com.productShop.constants.ConstantPath;
 import com.productShop.models.dto.CategorySeedDto;
 import com.productShop.models.entities.Category;
 import com.productShop.repositories.CategoryRepository;
