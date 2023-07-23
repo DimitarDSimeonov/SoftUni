@@ -51,6 +51,8 @@ public class UserServiceImpl implements UserService{
 
         user.setAdministrator(userRepository.count() == 0);
 
+        System.out.println(user.getFullName() + "was registered");
+
         userRepository.save(user);
     }
 
