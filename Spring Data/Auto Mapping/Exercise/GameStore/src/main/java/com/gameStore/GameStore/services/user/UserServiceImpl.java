@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService{
 
         user.setAdministrator(userRepository.count() == 0);
 
-        System.out.println(user.getFullName() + "was registered");
+        System.out.println(user.getFullName() + " was registered");
 
         userRepository.save(user);
     }
@@ -76,6 +76,8 @@ public class UserServiceImpl implements UserService{
             System.out.println("Incorrect username / password");
             return;
         }
+
+        System.out.println("Successfully logged in " + user.getFullName());
 
         loggedInUser = user;
     }
