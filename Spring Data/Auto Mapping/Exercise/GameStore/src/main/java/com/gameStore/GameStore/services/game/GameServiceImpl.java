@@ -92,4 +92,29 @@ public class GameServiceImpl implements GameService{
         gameRepository.save(gameToSave);
         System.out.println("Edited " + gameToSave.getTitle());
     }
+
+    @Override
+    public void deleteGame(long id) {
+
+        if (userService.getLoggedInUser() == null) {
+            System.out.println("Not logged in user");
+            return;
+        }
+
+        if(!userService.getLoggedInUser().getAdministrator()) {
+            System.out.println("Only administrator can delete games");
+            return;
+        }
+
+        Optional<Game> gameToDelete = gameRepository.findById(id);
+
+        if (gameToDelete.isEmpty()) {
+            System.out.println("Game not found");
+            return;
+        }
+
+        gameRepository.delete(gameToDelete.get());
+
+        System.out.println("Deleted " + gameToDelete.get().getTitle());
+    }
 }

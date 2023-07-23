@@ -58,6 +58,8 @@ public class Main implements CommandLineRunner {
                 case "EditGame" -> this.gameService
                         .editGame(commands);
 
+                case "DeleteGame" -> this.gameService.deleteGame(Long.parseLong(commands[1]));
+
                 //TODO: Add more methods!!!
             }
 

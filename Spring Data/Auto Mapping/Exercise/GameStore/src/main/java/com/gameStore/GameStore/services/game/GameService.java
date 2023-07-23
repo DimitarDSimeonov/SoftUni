@@ -7,4 +7,6 @@ public interface GameService {
     void addGame(GameRegisterDto gameRegisterDto);
 
     void editGame(String[] commands);
+
+    void deleteGame(long id);
 }
