@@ -55,7 +55,7 @@ public class ProductServiceImpl implements ProductService {
                 .forEach(product -> {
                     product.setSellerId(userService.getRandomUser());
                     User buyer = userService.getRandomUser();
-                    if (buyer.getId().equals(product.getSellerId().getId())) {
+                    if (buyer.getId().equals(product.getSellerId().getId()) || product.getName().length() > 25) {
                         product.setBuyerId(null);
                     } else {
                         product.setBuyerId(buyer);
