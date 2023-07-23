@@ -25,9 +25,8 @@ public class UserServiceImpl implements UserService{
         this.modelMapper = modelMapper;
     }
 
-    @Override
-    public void registerUser(String email, String password, String confirmPassword, String fullName) {
-
+    public User getLoggedInUser() {
+        return loggedInUser;
     }
 
     @Override
