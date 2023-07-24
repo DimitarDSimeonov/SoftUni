@@ -17,11 +17,11 @@ public class Product extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "buyer_id")
-    private User buyerId;
+    private User buyer;
 
     @ManyToOne
     @JoinColumn(name = "seller_id", nullable = false)
-    private User sellerId;
+    private User seller;
 
     @ManyToMany
     private Set<Category> categories;
@@ -45,20 +45,20 @@ public class Product extends BaseEntity{
         this.price = price;
     }
 
-    public User getBuyerId() {
-        return buyerId;
+    public User getBuyer() {
+        return buyer;
     }
 
-    public void setBuyerId(User buyerId) {
-        this.buyerId = buyerId;
+    public void setBuyer(User buyer) {
+        this.buyer = buyer;
     }
 
-    public User getSellerId() {
-        return sellerId;
+    public User getSeller() {
+        return seller;
     }
 
-    public void setSellerId(User sellerId) {
-        this.sellerId = sellerId;
+    public void setSeller(User seller) {
+        this.seller = seller;
     }
 
     public Set<Category> getCategories() {

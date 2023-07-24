@@ -1,6 +1,7 @@
 package com.productShop.services.impl;
 
 import com.google.gson.Gson;
+import com.productShop.models.dto.ProductNameAndPriceDto;
 import com.productShop.models.dto.ProductSeedDto;
 import com.productShop.models.entities.Product;
 import com.productShop.models.entities.User;
@@ -13,9 +14,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.productShop.constants.ConstantPath.PRODUCT_FILE_PATH;
 
@@ -53,17 +57,33 @@ public class ProductServiceImpl implements ProductService {
                 .filter(validationUtil::isValid)
                 .map(productSeedDto -> modelMapper.map(productSeedDto, Product.class))
                 .forEach(product -> {
-                    product.setSellerId(userService.getRandomUser());
+                    product.setSeller(userService.getRandomUser());
                     User buyer = userService.getRandomUser();
-                    if (buyer.getId().equals(product.getSellerId().getId()) || product.getName().length() > 25) {
-                        product.setBuyerId(null);
+                    if (buyer.getId().equals(product.getSeller().getId()) || product.getName().length() > 25) {
+                        product.setBuyer(null);
                     } else {
-                        product.setBuyerId(buyer);
+                        product.setBuyer(buyer);
                     }
 
                     product.setCategories(categoryService.randomCategories());
 
                     productRepository.save(product);
                 });
+    }
+
+    @Override
+    public List<ProductNameAndPriceDto> findAllProductsInRangeOrderByPrice(BigDecimal lowerPrice, BigDecimal upperPrice) {
+        return productRepository.findAllByPriceBetweenAndBuyerIsNullOrderByPrice(lowerPrice, upperPrice)
+                .stream()
+                .map(product -> {
+                    ProductNameAndPriceDto productNameAndPriceDto = modelMapper
+                                .map(product, ProductNameAndPriceDto.class);
+
+                    productNameAndPriceDto.setSeller(String.format("%s %s", product.getSeller().getFirstName(),
+                            product.getSeller().getLastName()));
+
+                    return productNameAndPriceDto;
+                })
+                .collect(Collectors.toList());
     }
 }

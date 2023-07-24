@@ -20,7 +20,7 @@ public class User extends BaseEntity{
     @ManyToMany
     private Set<User> friends;
 
-    @OneToMany(mappedBy = "sellerId")
+    @OneToMany(mappedBy = "seller")
     private Set<Product> products;
 
     public User() {
