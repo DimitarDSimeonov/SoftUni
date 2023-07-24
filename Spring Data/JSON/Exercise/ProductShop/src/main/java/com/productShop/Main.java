@@ -2,6 +2,7 @@ package com.productShop;
 
 import com.google.gson.Gson;
 import com.productShop.models.dto.ProductNameAndPriceDto;
+import com.productShop.models.dto.UserWithSoldProductDto;
 import com.productShop.services.CategoryService;
 import com.productShop.services.ProductService;
 import com.productShop.services.UserService;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.productShop.constants.ConstantPath.PRODUCT_IN_RANGE_PATH;
+import static com.productShop.constants.ConstantPath.USER_WITH_SOLD_PRODUCT;
 
 @Component
 public class Main implements CommandLineRunner {
@@ -38,6 +40,7 @@ public class Main implements CommandLineRunner {
 
         seedData();
         productsInRange();
+        userSoldProduct();
     }
 
     private void seedData() throws IOException {
@@ -55,6 +58,16 @@ public class Main implements CommandLineRunner {
 
         writeToFile(PRODUCT_IN_RANGE_PATH, content);
 
+    }
+
+    private void userSoldProduct() throws IOException {
+
+        List<UserWithSoldProductDto> users = userService
+                .findAllWhitSoldProducts();
+
+        String content = gson.toJson(users);
+
+        writeToFile(USER_WITH_SOLD_PRODUCT, content);
     }
 
     private void writeToFile(String path,String content) throws IOException {

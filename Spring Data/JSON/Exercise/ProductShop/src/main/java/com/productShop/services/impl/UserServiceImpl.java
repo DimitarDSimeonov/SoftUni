@@ -2,6 +2,7 @@ package com.productShop.services.impl;
 
 import com.google.gson.Gson;
 import com.productShop.models.dto.UserSeedDto;
+import com.productShop.models.dto.UserWithSoldProductDto;
 import com.productShop.models.entities.User;
 import com.productShop.repositories.UserRepository;
 import com.productShop.services.UserService;
@@ -13,7 +14,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 import static com.productShop.constants.ConstantPath.USER_FILE_PATH;
 
@@ -53,5 +56,19 @@ public class UserServiceImpl implements UserService {
                 .map(userSeedDto -> modelMapper.map(userSeedDto, User.class))
                 .forEach(userRepository::save);
 
+    }
+
+    @Override
+    public List<UserWithSoldProductDto> findAllWhitSoldProducts() {
+
+        List<User> users = userRepository.findAllWhitSoldProductOrderByLastNameThenByFirstName();
+                users
+                        .forEach(user -> user.setSoldProducts(user.getSoldProducts().stream()
+                                .filter(product -> product.getBuyer() != null).collect(Collectors.toSet())));
+
+
+        return users.stream()
+                .map(user -> modelMapper.map(user, UserWithSoldProductDto.class))
+                .collect(Collectors.toList());
     }
 }

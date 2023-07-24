@@ -20,8 +20,8 @@ public class User extends BaseEntity{
     @ManyToMany
     private Set<User> friends;
 
-    @OneToMany(mappedBy = "seller")
-    private Set<Product> products;
+    @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER)
+    private Set<Product> soldProducts;
 
     public User() {
     }
@@ -48,5 +48,21 @@ public class User extends BaseEntity{
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Set<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<User> friends) {
+        this.friends = friends;
+    }
+
+    public Set<Product> getSoldProducts() {
+        return soldProducts;
+    }
+
+    public void setSoldProducts(Set<Product> soldProducts) {
+        this.soldProducts = soldProducts;
     }
 }
