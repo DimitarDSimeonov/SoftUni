@@ -1,5 +1,6 @@
 package com.productShop.services;
 
+import com.productShop.models.dto.UserListDto;
 import com.productShop.models.dto.UserWithSoldProductDto;
 import com.productShop.models.entities.User;
 
@@ -14,4 +15,5 @@ public interface UserService {
 
     List<UserWithSoldProductDto> findAllWithSoldProducts();
 
+    UserListDto findAllUserWithSoldProduct();
 }

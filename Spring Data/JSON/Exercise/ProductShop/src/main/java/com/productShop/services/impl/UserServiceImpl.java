@@ -1,6 +1,8 @@
 package com.productShop.services.impl;
 
 import com.google.gson.Gson;
+import com.productShop.models.dto.UserListDto;
+import com.productShop.models.dto.UserNameAgeAndSoldProductDto;
 import com.productShop.models.dto.UserSeedDto;
 import com.productShop.models.dto.UserWithSoldProductDto;
 import com.productShop.models.entities.User;
@@ -15,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -70,5 +73,17 @@ public class UserServiceImpl implements UserService {
                 .filter(user -> user.getSoldProducts().size() > 0)
                 .map(user -> modelMapper.map(user, UserWithSoldProductDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserListDto findAllUserWithSoldProduct() {
+
+        Set<UserNameAgeAndSoldProductDto> users = userRepository.findAllWithSoldProductOrderByProductCountThenByLastName()
+                .stream()
+                .map(user -> modelMapper.map(user, UserNameAgeAndSoldProductDto.class))
+                .collect(Collectors.toSet());
+
+        return new UserListDto(users);
+
     }
 }

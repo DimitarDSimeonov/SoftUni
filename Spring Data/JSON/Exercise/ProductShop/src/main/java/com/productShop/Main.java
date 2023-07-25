@@ -3,6 +3,7 @@ package com.productShop;
 import com.google.gson.Gson;
 import com.productShop.models.dto.CategoryByProductCountDto;
 import com.productShop.models.dto.ProductNameAndPriceDto;
+import com.productShop.models.dto.UserListDto;
 import com.productShop.models.dto.UserWithSoldProductDto;
 import com.productShop.services.CategoryService;
 import com.productShop.services.ProductService;
@@ -38,10 +39,11 @@ public class Main implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("START!!!");
 
-        seedData();
-        productsInRange();
-        userSoldProduct();
-        categoryByProductCount();
+//        seedData();
+//        productsInRange();
+//        userSoldProduct();
+//        categoryByProductCount();
+        usersAndProducts();
     }
 
     private void seedData() throws IOException {
@@ -78,6 +80,17 @@ public class Main implements CommandLineRunner {
         String content = gson.toJson(category);
 
         writeToFile(CATEGORY_BY_PRODUCT_COUNT, content);
+    }
+
+    private void usersAndProducts() throws IOException {
+
+        UserListDto user = userService.findAllUserWithSoldProduct();
+
+        String content = gson.toJson(user);
+
+        writeToFile(USERS_PRODUCTS, content);
+
+        //ToDo: Override count of products!!!
     }
 
     private void writeToFile(String path,String content) throws IOException {

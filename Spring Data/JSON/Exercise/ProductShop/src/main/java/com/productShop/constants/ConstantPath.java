@@ -14,4 +14,6 @@ public class ConstantPath {
     public static final String USER_WITH_SOLD_PRODUCT = "src/main/resources/files/out/users-sold-products.json";
 
     public static final String CATEGORY_BY_PRODUCT_COUNT = "src/main/resources/files/out/category-by-product-count.json";
+
+    public static final String USERS_PRODUCTS = "src/main/resources/files/out/users-products.json";
 }
