@@ -59,15 +59,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserWithSoldProductDto> findAllWhitSoldProducts() {
+    public List<UserWithSoldProductDto> findAllWithSoldProducts() {
 
         List<User> users = userRepository.findAllWhitSoldProductOrderByLastNameThenByFirstName();
                 users
                         .forEach(user -> user.setSoldProducts(user.getSoldProducts().stream()
                                 .filter(product -> product.getBuyer() != null).collect(Collectors.toSet())));
 
-
         return users.stream()
+                .filter(user -> user.getSoldProducts().size() > 0)
                 .map(user -> modelMapper.map(user, UserWithSoldProductDto.class))
                 .collect(Collectors.toList());
     }

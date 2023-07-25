@@ -12,6 +12,6 @@ public interface UserService {
 
     void seedUser() throws IOException;
 
-    List<UserWithSoldProductDto> findAllWhitSoldProducts();
+    List<UserWithSoldProductDto> findAllWithSoldProducts();
 
 }

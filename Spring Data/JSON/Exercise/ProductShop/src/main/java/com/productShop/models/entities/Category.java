@@ -1,10 +1,9 @@
 package com.productShop.models.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "categories")
@@ -13,11 +12,22 @@ public class Category extends BaseEntity{
     @Column(nullable = false)
     private String name;
 
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
+    private Set<Product> products;
+
     public Category() {
     }
 
     public String getName() {
         return name;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     public void setName(String name) {
