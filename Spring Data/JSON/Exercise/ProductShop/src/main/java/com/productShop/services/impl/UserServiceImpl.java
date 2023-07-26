@@ -1,10 +1,7 @@
 package com.productShop.services.impl;
 
 import com.google.gson.Gson;
-import com.productShop.models.dto.UserListDto;
-import com.productShop.models.dto.UserNameAgeAndSoldProductDto;
-import com.productShop.models.dto.UserSeedDto;
-import com.productShop.models.dto.UserWithSoldProductDto;
+import com.productShop.models.dto.*;
 import com.productShop.models.entities.User;
 import com.productShop.repositories.UserRepository;
 import com.productShop.services.UserService;
@@ -78,10 +75,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserListDto findAllUserWithSoldProduct() {
 
-        Set<UserNameAgeAndSoldProductDto> users = userRepository.findAllWithSoldProductOrderByProductCountThenByLastName()
+        List<UserNameAgeAndSoldProductDto> users = userRepository.findAllWithSoldProductOrderByProductCountThenByLastName()
                 .stream()
                 .map(user -> modelMapper.map(user, UserNameAgeAndSoldProductDto.class))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
+
+        users
+                .forEach(UserNameAgeAndSoldProductDto -> UserNameAgeAndSoldProductDto.getSoldProducts().setCount(UserNameAgeAndSoldProductDto.getSoldProducts().getProducts().size()));
 
         return new UserListDto(users);
 

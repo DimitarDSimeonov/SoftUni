@@ -15,12 +15,6 @@ public class ProductSoldListDto {
     public ProductSoldListDto() {
     }
 
-    public ProductSoldListDto(Set<ProductNamePriceDto> products) {
-        this.count = products.size();
-        this.products = products;
-    }
-
-
     public Integer getCount() {
         return count;
     }

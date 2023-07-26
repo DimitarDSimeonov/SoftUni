@@ -39,10 +39,10 @@ public class Main implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("START!!!");
 
-//        seedData();
-//        productsInRange();
-//        userSoldProduct();
-//        categoryByProductCount();
+        seedData();
+        productsInRange();
+        userSoldProduct();
+        categoryByProductCount();
         usersAndProducts();
     }
 
@@ -90,7 +90,6 @@ public class Main implements CommandLineRunner {
 
         writeToFile(USERS_PRODUCTS, content);
 
-        //ToDo: Override count of products!!!
     }
 
     private void writeToFile(String path,String content) throws IOException {

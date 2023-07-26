@@ -2,6 +2,7 @@ package com.productShop.models.dto;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.List;
 import java.util.Set;
 
 public class UserListDto {
@@ -10,12 +11,12 @@ public class UserListDto {
     private Integer usersCount;
 
     @Expose
-    private Set<UserNameAgeAndSoldProductDto> users;
+    private List<UserNameAgeAndSoldProductDto> users;
 
     public UserListDto() {
     }
 
-    public UserListDto(Set<UserNameAgeAndSoldProductDto> users) {
+    public UserListDto(List<UserNameAgeAndSoldProductDto> users) {
         this.users = users;
         this.usersCount = users.size();
     }
@@ -28,11 +29,11 @@ public class UserListDto {
         this.usersCount = usersCount;
     }
 
-    public Set<UserNameAgeAndSoldProductDto> getUsers() {
+    public List<UserNameAgeAndSoldProductDto> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<UserNameAgeAndSoldProductDto> users) {
+    public void setUsers(List<UserNameAgeAndSoldProductDto> users) {
         this.users = users;
     }
 }
