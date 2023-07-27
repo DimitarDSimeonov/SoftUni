@@ -32,13 +32,12 @@ public class Main implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("START!!!");
 
-//        seedData();
-//        productsInRange();
-//        userSoldProduct();
-//        categoryByProductCount();
-//        usersAndProducts();
+        seedData();
+        productsInRange();
+        userSoldProduct();
+        categoryByProductCount();
+        usersAndProducts();
     }
 
     private void seedData() throws IOException, JAXBException {
@@ -81,10 +80,11 @@ public class Main implements CommandLineRunner {
         xmlParser.writeToFile(CATEGORY_BY_PRODUCT_COUNT, category);
 
     }
-//
-//    private void usersAndProducts() throws IOException {
-//
-//        UserListDto user = userService.findAllUserWithSoldProduct();
-//
-//    }
+
+    private void usersAndProducts() throws JAXBException {
+
+        UserListDto user = userService.findAllUserWithSoldProduct();
+
+        xmlParser.writeToFile(USERS_PRODUCTS, user);
+    }
 }

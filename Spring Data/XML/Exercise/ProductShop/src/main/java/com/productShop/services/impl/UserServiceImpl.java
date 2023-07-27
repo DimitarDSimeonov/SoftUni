@@ -70,18 +70,18 @@ public class UserServiceImpl implements UserService {
         return rootDto;
     }
 
-//    @Override
-//    public UserListDto findAllUserWithSoldProduct() {
-//
-////        List<UserNameAgeAndSoldProductDto> users = userRepository.findAllWithSoldProductOrderByProductCountThenByLastName()
-////                .stream()
-////                .map(user -> modelMapper.map(user, UserNameAgeAndSoldProductDto.class))
-////                .collect(Collectors.toList());
-////
-////        users
-////                .forEach(UserNameAgeAndSoldProductDto -> UserNameAgeAndSoldProductDto.getSoldProducts().setCount(UserNameAgeAndSoldProductDto.getSoldProducts().getProducts().size()));
-////
-////        return new UserListDto(users);
-//
-//    }
+    @Override
+    public UserListDto findAllUserWithSoldProduct() {
+
+        List<UserAgeAndProductsDto> users = userRepository.findAllWithSoldProductOrderByProductCountThenByLastName()
+                .stream()
+                .map(user -> modelMapper.map(user, UserAgeAndProductsDto.class))
+                .collect(Collectors.toList());
+
+        users
+                .forEach(UserAgeAndProductsDto -> UserAgeAndProductsDto.getProducts().setCount(UserAgeAndProductsDto.getProducts().getProducts().size()));
+
+        return new UserListDto(users);
+
+    }
 }

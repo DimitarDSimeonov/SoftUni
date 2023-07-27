@@ -1,5 +1,6 @@
 package com.productShop.services;
 
+import com.productShop.models.dto.UserListDto;
 import com.productShop.models.dto.UserSeedDto;
 import com.productShop.models.dto.UserWithSoldProductRootDto;
 import com.productShop.models.entities.User;
@@ -16,6 +17,6 @@ public interface UserService {
     void seedUser(List<UserSeedDto> users) throws IOException;
 
     UserWithSoldProductRootDto findAllWithSoldProducts();
-//
-//    UserListDto findAllUserWithSoldProduct();
+
+    UserListDto findAllUserWithSoldProduct();
 }
