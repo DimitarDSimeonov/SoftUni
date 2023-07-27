@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.List;
 
 import static com.productShop.constants.ConstantPath.*;
 
@@ -37,7 +36,7 @@ public class Main implements CommandLineRunner {
 
 //        seedData();
 //        productsInRange();
-        userSoldProduct();
+//        userSoldProduct();
 //        categoryByProductCount();
 //        usersAndProducts();
     }
@@ -74,12 +73,14 @@ public class Main implements CommandLineRunner {
 
         xmlParser.writeToFile(USER_WITH_SOLD_PRODUCT,allWithSoldProducts);
     }
-//
-//    private void categoryByProductCount() throws IOException {
-//
-//        List<CategoryByProductCountDto> category = categoryService.findAllByProductCount();
-//
-//    }
+
+    private void categoryByProductCount() throws JAXBException {
+
+        CategoryByProductCountRootDto category = categoryService.findAllByProductCount();
+
+        xmlParser.writeToFile(CATEGORY_BY_PRODUCT_COUNT, category);
+
+    }
 //
 //    private void usersAndProducts() throws IOException {
 //

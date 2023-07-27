@@ -1,5 +1,6 @@
 package com.productShop.services;
 
+import com.productShop.models.dto.CategoryByProductCountRootDto;
 import com.productShop.models.dto.CategorySeedDto;
 import com.productShop.models.entities.Category;
 
@@ -15,5 +16,5 @@ public interface CategoryService {
 
     void seedCategory(List<CategorySeedDto> categories) throws IOException;
 
-//    List<CategoryByProductCountDto> findAllByProductCount();
+    CategoryByProductCountRootDto findAllByProductCount();
 }
