@@ -36,8 +36,8 @@ public class Main implements CommandLineRunner {
         System.out.println("START!!!");
 
 //        seedData();
-        productsInRange();
-//        userSoldProduct();
+//        productsInRange();
+        userSoldProduct();
 //        categoryByProductCount();
 //        usersAndProducts();
     }
@@ -67,10 +67,13 @@ public class Main implements CommandLineRunner {
         xmlParser.writeToFile(PRODUCT_IN_RANGE_PATH, product);
 
     }
-//
-//    private void userSoldProduct() throws IOException {
-//
-//    }
+
+    private void userSoldProduct() throws JAXBException {
+
+        UserWithSoldProductRootDto allWithSoldProducts = userService.findAllWithSoldProducts();
+
+        xmlParser.writeToFile(USER_WITH_SOLD_PRODUCT,allWithSoldProducts);
+    }
 //
 //    private void categoryByProductCount() throws IOException {
 //

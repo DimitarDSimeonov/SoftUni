@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void seedUser(List<UserSeedDto> users) throws IOException {
+    public void seedUser(List<UserSeedDto> users) {
 
         if(userRepository.count() > 0) {
             return;
@@ -51,19 +52,23 @@ public class UserServiceImpl implements UserService {
 
     }
 
-//    @Override
-//    public List<UserWithSoldProductDto> findAllWithSoldProducts() {
-//
-//        List<User> users = userRepository.findAllWhitSoldProductOrderByLastNameThenByFirstName();
-//                users
-//                        .forEach(user -> user.setSoldProducts(user.getSoldProducts().stream()
-//                                .filter(product -> product.getBuyer() != null).collect(Collectors.toSet())));
-//
-//        return users.stream()
-//                .filter(user -> user.getSoldProducts().size() > 0)
-//                .map(user -> modelMapper.map(user, UserWithSoldProductDto.class))
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public UserWithSoldProductRootDto findAllWithSoldProducts() {
+
+        List<User> users = userRepository.findAllWhitSoldProductOrderByLastNameThenByFirstName();
+                users
+                        .forEach(user -> user.setSoldProducts(user.getSoldProducts().stream()
+                                .filter(product -> product.getBuyer() != null).collect(Collectors.toSet())));
+
+        List<UserWithSoldProductDto> userWithSoldProductDtos = users.stream()
+                .filter(user -> user.getSoldProducts().size() > 0)
+                .map(user -> modelMapper.map(user, UserWithSoldProductDto.class))
+                .collect(Collectors.toList());
+
+        UserWithSoldProductRootDto rootDto = new UserWithSoldProductRootDto();
+        rootDto.setUsers(userWithSoldProductDtos);
+        return rootDto;
+    }
 
 //    @Override
 //    public UserListDto findAllUserWithSoldProduct() {
