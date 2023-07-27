@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @XmlRootElement(name = "product")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ProductNameAndPriceDto {
+public class ProductNamePriceAndSellerDto {
 
     @XmlAttribute(name = "name")
     private String name;

@@ -9,16 +9,16 @@ import java.util.List;
 
 @XmlRootElement(name = "products")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ProductNameAndPriceRootDto {
+public class ProductNamePriceAndSellerRootDto {
 
     @XmlElement(name = "product")
-    private List<ProductNameAndPriceDto> products;
+    private List<ProductNamePriceAndSellerDto> products;
 
-    public List<ProductNameAndPriceDto> getProducts() {
+    public List<ProductNamePriceAndSellerDto> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductNameAndPriceDto> products) {
+    public void setProducts(List<ProductNamePriceAndSellerDto> products) {
         this.products = products;
     }
 }

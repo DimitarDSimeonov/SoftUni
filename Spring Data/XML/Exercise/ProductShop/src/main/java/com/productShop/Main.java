@@ -60,7 +60,7 @@ public class Main implements CommandLineRunner {
 
     private void productsInRange() throws JAXBException {
 
-        ProductNameAndPriceRootDto product = productService
+        ProductNamePriceAndSellerRootDto product = productService
                 .findAllProductsInRangeOrderByPrice(new BigDecimal(500), new BigDecimal(1000));
 
         xmlParser.writeToFile(PRODUCT_IN_RANGE_PATH, product);

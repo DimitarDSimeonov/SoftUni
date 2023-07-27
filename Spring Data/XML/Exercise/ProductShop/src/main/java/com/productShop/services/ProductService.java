@@ -1,6 +1,6 @@
 package com.productShop.services;
 
-import com.productShop.models.dto.ProductNameAndPriceRootDto;
+import com.productShop.models.dto.ProductNamePriceAndSellerRootDto;
 import com.productShop.models.dto.ProductSeedDto;
 
 import java.io.IOException;
@@ -13,5 +13,5 @@ public interface ProductService {
 
     void seedProduct(List<ProductSeedDto> products) throws IOException;
 
-    ProductNameAndPriceRootDto findAllProductsInRangeOrderByPrice(BigDecimal lowerPrice, BigDecimal upperPrice);
+    ProductNamePriceAndSellerRootDto findAllProductsInRangeOrderByPrice(BigDecimal lowerPrice, BigDecimal upperPrice);
 }

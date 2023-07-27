@@ -1,7 +1,7 @@
 package com.productShop.services.impl;
 
-import com.productShop.models.dto.ProductNameAndPriceDto;
-import com.productShop.models.dto.ProductNameAndPriceRootDto;
+import com.productShop.models.dto.ProductNamePriceAndSellerDto;
+import com.productShop.models.dto.ProductNamePriceAndSellerRootDto;
 import com.productShop.models.dto.ProductSeedDto;
 import com.productShop.models.entities.Product;
 import com.productShop.models.entities.User;
@@ -62,12 +62,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductNameAndPriceRootDto findAllProductsInRangeOrderByPrice(BigDecimal lowerPrice, BigDecimal upperPrice) {
-         List<ProductNameAndPriceDto> products = productRepository.findAllByPriceBetweenAndBuyerIsNullOrderByPrice(lowerPrice, upperPrice)
+    public ProductNamePriceAndSellerRootDto findAllProductsInRangeOrderByPrice(BigDecimal lowerPrice, BigDecimal upperPrice) {
+         List<ProductNamePriceAndSellerDto> products = productRepository.findAllByPriceBetweenAndBuyerIsNullOrderByPrice(lowerPrice, upperPrice)
                 .stream()
                 .map(product -> {
-                    ProductNameAndPriceDto productNameAndPriceDto = modelMapper
-                                .map(product, ProductNameAndPriceDto.class);
+                    ProductNamePriceAndSellerDto productNameAndPriceDto = modelMapper
+                                .map(product, ProductNamePriceAndSellerDto.class);
 
                     productNameAndPriceDto.setSeller(String.format("%s %s", product.getSeller().getFirstName(),
                             product.getSeller().getLastName()));
@@ -76,7 +76,7 @@ public class ProductServiceImpl implements ProductService {
                 })
                 .collect(Collectors.toList());
 
-         ProductNameAndPriceRootDto product =  new ProductNameAndPriceRootDto();
+         ProductNamePriceAndSellerRootDto product =  new ProductNamePriceAndSellerRootDto();
          product.setProducts(products);
          return product;
     }
