@@ -1,8 +1,11 @@
 package softuni.exam.service;
 
-import java.io.IOException;
+import softuni.exam.models.entity.City;
 
-// TODO: Implement all methods
+import java.io.IOException;
+import java.util.Map;
+import java.util.Optional;
+
 public interface CityService {
 
     boolean areImported();
@@ -10,4 +13,6 @@ public interface CityService {
     String readCitiesFileContent() throws IOException;
 	
 	String importCities() throws IOException;
+
+    Optional<City> findById(Long id);
 }
