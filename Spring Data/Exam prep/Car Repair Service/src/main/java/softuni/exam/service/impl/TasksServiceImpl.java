@@ -23,7 +23,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-// TODO: Implement all methods
 @Service
 public class TasksServiceImpl implements TasksService {
     private static String TASKS_FILE_PATH = "src/main/resources/files/xml/tasks.xml";
