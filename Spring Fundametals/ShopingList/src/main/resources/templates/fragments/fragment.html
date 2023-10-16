@@ -23,10 +23,10 @@
                     <a class="nav-link text-white active h5" href="/">Logout</a>
                 </li>
                 <li th:if="${session.user == null}" class="nav-item col-md-4">
-                        <a class="nav-link text-white active h5" href="/">Login</a>
+                        <a class="nav-link text-white active h5" href="/users/login">Login</a>
                 </li>
                 <li th:if="${session.user == null}" class="nav-item col-md-4">
-                        <a class="nav-link text-white active h5" href="/">Register</a>
+                        <a class="nav-link text-white active h5" href="/users/register">Register</a>
                 </li>
 
             </ul>
