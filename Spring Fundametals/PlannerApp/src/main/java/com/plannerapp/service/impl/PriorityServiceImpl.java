@@ -29,4 +29,9 @@ public class PriorityServiceImpl implements PriorityService {
                     });
         }
     }
+
+    @Override
+    public Priority getByName(PriorityName name) {
+        return priorityRepository.findByName(name);
+    }
 }

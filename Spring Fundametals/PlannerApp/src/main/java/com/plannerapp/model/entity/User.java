@@ -1,6 +1,7 @@
 package com.plannerapp.model.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,7 @@ public class User {
     private List<Task> assignedTask;
 
     public User() {
+        assignedTask = new ArrayList<>();
     }
 
     public Long getId() {

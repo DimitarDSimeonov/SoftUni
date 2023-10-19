@@ -13,7 +13,7 @@
 <header>
     <nav th:fragment="nav" class="navbar navbar-expand-lg bg-nav rounded">
         <a class="nav-link my-text-color active h5 " href="/">Planner App</a>
-        <a th:if="${session.user != null}" class="nav-link my-text-color active h5 " href="/">Add Task</a>
+        <a th:if="${session.user != null}" class="nav-link my-text-color active h5 " href="/tasks/add">Add Task</a>
 
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav row">
@@ -28,7 +28,7 @@
                 </th:block>
 
                 <li th:if="${session.user != null}" class="nav-item col-md-4">
-                    <a class="nav-link my-text-color active h5 " href="/">Logout</a>
+                    <a class="nav-link my-text-color active h5 " href="/users/logout">Logout</a>
                 </li>
             </ul>
         </div>

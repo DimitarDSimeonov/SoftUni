@@ -1,12 +1,12 @@
 package com.plannerapp.model.service;
 
-public class UserServiceModel {
+public class UserRegisterServiceModel {
 
     private String username;
     private String password;
     private String email;
 
-    public UserServiceModel() {
+    public UserRegisterServiceModel() {
     }
 
     public String getUsername() {

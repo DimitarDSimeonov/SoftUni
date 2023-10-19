@@ -4,12 +4,17 @@ package com.plannerapp.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class HomeController {
 
     @GetMapping("/")
-    public String index() {
+    public String index(HttpSession httpSession) {
 
-        return "index";
+        if(httpSession.getAttribute("user") == null) {
+            return "index";
+        }
+        return "home";
     }
 }
