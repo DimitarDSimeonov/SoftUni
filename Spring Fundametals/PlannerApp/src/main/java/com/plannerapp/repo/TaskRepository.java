@@ -11,4 +11,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     @Query("SELECT t FROM Task t WHERE user = null")
     List<Task> findAllAvailable();
+
+    List<Task> findByUser_Id(Long id);
+
 }

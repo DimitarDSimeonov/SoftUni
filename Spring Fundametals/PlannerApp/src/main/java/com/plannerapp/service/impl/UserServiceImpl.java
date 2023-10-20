@@ -54,23 +54,8 @@ public class UserServiceImpl implements UserService {
         userLoginServiceModel.setId(user.getId());
         userLoginServiceModel.setUsername(user.getUsername());
         userLoginServiceModel.setPassword(user.getPassword());
-        userLoginServiceModel.setAssignedTask(new ArrayList<>());
-        userLoginServiceModel.setAvailableTask(new ArrayList<>());
 
         this.loggedUserId = user.getId();
-
-        List<TaskViewModel> allAvailable = taskRepository
-                .findAllAvailable()
-                .stream()
-                .map(task -> {
-                    TaskViewModel taskViewModel = new TaskViewModel(task.getId(), task.getPriority().getName().name(), task.getDescription(), task.getDueDate());
-                    return taskViewModel;
-                })
-                .collect(Collectors.toList());
-
-        if (!allAvailable.isEmpty()) {
-            userLoginServiceModel.setAvailableTask(allAvailable);
-        }
 
         return userLoginServiceModel;
 

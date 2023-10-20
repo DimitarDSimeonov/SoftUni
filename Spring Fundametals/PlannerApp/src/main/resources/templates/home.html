@@ -11,15 +11,15 @@
             <h3 class=" bg-gray text-dark  mb-0 mt-2">Assigned to me</h3>
             <h6 class=" bg-gray text-dark  mb-0 mt-0" th:text="|Username: *{username}|"></h6>
             <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                <ul th:each="t : ${availableTask}" th:object="${t}" class="list-group list-group-horizontal text-dark">
+                <ul th:each="t : ${assignTask}" th:object="${t}" class="list-group list-group-horizontal text-dark">
                     <li class="list-group-item bg-warning">
                         <table>
                             <tr>
                                 <td scope="row" style="width: 5%"><img class="mr-2 " src="/img/pin.png" alt="Pin" width="35px" height="35px"></td>
                                 <td th:text="*{priority}" style="width: 15%">{priority}</td>
                                 <td th:text="*{dueDate}" style="width: 40%">{dueDate}</td>
-                                <td><a href="/"><img src="/img/done-remove-button.png" height="35px"></a></td>
-                                <td><a href="/"><img src="/img/return.png" height="35px"></a></td>
+                                <td><a th:href="@{/tasks/remove/{id}(id = *{id})}"><img src="/img/done-remove-button.png" height="35px"></a></td>
+                                <td><a th:href="@{/tasks/return/{id}(id = *{id})}"><img src="/img/return.png" height="35px"></a></td>
                             </tr>
                         </table>
                     </li>
@@ -32,9 +32,9 @@
 
         <div class="col-5">
             <h3 class="mySticky bg-gray text-dark  mb-0 mt-2">All Available Tasks</h3>
-            <h6 class="mySticky bg-gray text-dark  mb-0 mt-0" th:text="|${#arrays.length(#ctx.session.user.availableTask)} Tasks|">{totalUnassignedTasks} Tasks</h6>
+            <h6 class="mySticky bg-gray text-dark  mb-0 mt-0" th:text="|${#arrays.length(availableTask)} Tasks|">{totalUnassignedTasks} Tasks</h6>
             <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                    <ul th:each="t : ${#ctx.session.user.availableTask}" th:object="${t}" class="list-group list-group-horizontal text-dark">
+                    <ul th:each="t : ${availableTask}" th:object="${t}" class="list-group list-group-horizontal text-dark">
                         <li class="list-group-item bg-warning">
                             <table>
                                 <tr>

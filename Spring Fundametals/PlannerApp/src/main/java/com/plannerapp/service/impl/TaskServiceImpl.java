@@ -2,12 +2,16 @@ package com.plannerapp.service.impl;
 
 import com.plannerapp.model.binding.TaskAddBindingModel;
 import com.plannerapp.model.entity.Task;
+import com.plannerapp.model.view.TaskViewModel;
 import com.plannerapp.repo.TaskRepository;
 import com.plannerapp.service.PriorityService;
 import com.plannerapp.service.TaskService;
 import com.plannerapp.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -42,5 +46,41 @@ public class TaskServiceImpl implements TaskService {
         task.setUser(userService.getLoggedUser());
 
         taskRepository.saveAndFlush(task);
+    }
+
+    @Override
+    public List<TaskViewModel> getAvailableTask() {
+        return taskRepository.findAllAvailable()
+                .stream()
+                .map(task -> {
+            TaskViewModel taskViewModel = new TaskViewModel(task.getId(),task.getPriority().getName().name(), task.getDescription(), task.getDueDate());
+            return taskViewModel;
+        })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<TaskViewModel> getAssignedTask() {
+        return taskRepository.findByUser_Id(userService.getLoggedUser().getId())
+                .stream()
+                .map(task -> {
+                    TaskViewModel taskViewModel = new TaskViewModel(task.getId(),task.getPriority().getName().name(), task.getDescription(), task.getDueDate());
+                    return taskViewModel;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void remove(Long id) {
+        taskRepository.deleteById(id);
+    }
+
+    @Override
+    public void returnTask(Long id) {
+        Task task = taskRepository.findById(id).get();
+
+        task.setUser(null);
+
+        taskRepository.save(task);
     }
 }

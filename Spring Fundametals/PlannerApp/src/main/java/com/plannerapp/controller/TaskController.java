@@ -60,4 +60,20 @@ public class TaskController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/remove/{id}")
+    public String remove(@PathVariable Long id) {
+
+        taskService.remove(id);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/return/{id}")
+    public String returnTask(@PathVariable Long id) {
+
+        taskService.returnTask(id);
+
+        return "redirect:/";
+    }
 }
